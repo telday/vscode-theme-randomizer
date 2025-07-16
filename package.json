@@ -1,0 +1,63 @@
+{
+  "name": "theme-randomizer",
+  "displayName": "Theme Randomizer",
+  "description": "Randomizes your VSCode theme on an interval based on installed themes",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "theme-randomizer.changeThemeNow",
+        "title": "Theme Randomizer: Change Theme Now"
+      },
+      {
+        "command": "theme-randomizer.toggleAutoChange",
+        "title": "Theme Randomizer: Toggle Auto Change"
+      }
+    ],
+    "configuration": {
+      "title": "Theme Randomizer",
+      "properties": {
+        "themeRandomizer.intervalSeconds": {
+          "type": "number",
+          "default": 86400,
+          "minimum": 10,
+          "maximum": 2147483,
+          "description": "Seconds between automatic theme changes (minimum 10 seconds, maximum ~24 days)"
+        },
+        "themeRandomizer.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic theme changing"
+        },
+        "themeRandomizer.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notifications when theme changes"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.25.1",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

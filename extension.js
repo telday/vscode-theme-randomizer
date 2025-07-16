@@ -12,9 +12,6 @@ let themeChangeTimer = null;
  */
 function activate(context) {
 	console.log('Theme Randomizer extension is now active!');
-	
-	// Show a clear indication that the extension loaded
-	vscode.window.showInformationMessage('Theme Randomizer extension activated successfully!');
 
 	// Register commands
 	const changeThemeNowDisposable = vscode.commands.registerCommand('theme-randomizer.changeThemeNow', async () => {
